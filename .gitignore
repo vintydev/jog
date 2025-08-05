@@ -40,6 +40,7 @@ firebase-debug.log
 firestore.rules
 firestore.indexes.json
 ..firebase/
+/app/utils/serviceAccountKey.json
 
 # Environment variables
 .env
