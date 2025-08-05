@@ -1,0 +1,28 @@
+# Ignore node modules (will be installed during build)
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Ignore build artifacts
+.expo/
+dist/
+web-build/
+build/
+.expo-shared/
+*.tsbuildinfo
+
+# Ignore environment and secret files
+.env*
+*.p8
+*.p12
+*.key
+*.mobileprovision
+
+# Ignore logs and debug files
+*.log
+*.DS_Store
+
+# Ignore iOS and Android directories 
+ios/
+android/

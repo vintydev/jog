@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jog — Terms & Conditions</title>
+
+
+  <style>
+    body {
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 768px;
+      margin: 0 auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+
+    h1,
+    h2 {
+      color: #EB5A10;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 12px;
+      color: #888;
+    }
+  </style>
+
+
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    
+    const TermsPage = () => {
+      return (
+        <div className="container">
+          <h1>Terms & Conditions</h1>
+          <p>
+            Welcome to Jog! By using this app, you agree to the following terms and our privacy policy.
+            If you do not agree, please do not use the application.
+          </p>
+
+          <h2>1. Usage Terms</h2>
+          <p>
+            Jog is designed to support individuals with ADHD in their daily organisation and symptom
+            self-management. You may only use Jog for lawful and personal purposes. Any misuse,
+            including attempts to interfere with the app's operation or access others' data, is strictly
+            prohibited.
+          </p>
+          <p>
+            You are responsible for maintaining the confidentiality of your account and password. We
+            reserve the right to suspend or terminate accounts violating these terms.
+          </p>
+          <p>
+            This application is in beta. It may contain bugs or errors. We're not liable for any damages
+            resulting from use of the app.
+          </p>
+          <p>
+            Jog is not a replacement for professional medical advice or treatment. Please consult your
+            healthcare provider for all medical concerns.
+          </p>
+
+          <h2>2. Privacy and Data Protection</h2>
+          <p>
+            Your privacy is a top priority. All personal data is handled according to the General Data
+            Protection Regulation (GDPR).
+          </p>
+          <ul>
+            <li><strong>Encrypted Data:</strong> All data is encrypted in transit and at rest.</li>
+            <li><strong>EU-Based Servers:</strong> Your data is stored on Firebase servers located in the European Union.</li>
+            <li><strong>No Third-Party Sharing:</strong> We do not share your data for marketing purposes.</li>
+            <li><strong>Control & Access:</strong> You may request to access, update, or delete your data at any time.</li>
+            <li><strong>Data Retention:</strong> Data is used solely for personalisation and usability research. 
+              <br />
+              <li><strong>Data logged includes:</strong></li>
+              <ul>
+                <li>App usage patterns.</li>
+                <li>User Logged ADHD Symptoms.</li>
+                <li>Performance metrics.</li>
+                <li>Personal information, such as email and device.</li>
+              </ul>
+              
+              </li>
+          </ul>
+
+          <h2>3. Changes to These Terms</h2>
+          <p>
+            These terms may change occasionally. Significant updates will be shared in-app or via email.
+            Continued use implies acceptance of updates.
+          </p>
+
+          <footer>
+            <p>
+              This app is not affiliated with any medical organisation. It is an academic project developed
+              by a student at Glasgow Caledonian University for research and educational purposes only.
+            </p>
+            <p className="justify-center">
+            Created: {new Date("2025-04-01").toLocaleDateString("en-GB")} | Last updated: {new Date().toLocaleDateString("en-GB")} 
+            </p>
+          </footer>
+        </div>
+      );
+    };
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<TermsPage />);
+  </script>
+</body>
+
+</html>

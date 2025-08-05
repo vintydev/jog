@@ -1,0 +1,112 @@
+{
+  "expo": {
+    "name": "jog",
+    "slug": "jog-app",
+    "version": "1.0.13",
+    "orientation": "portrait",
+    "scheme": "jog-app",
+    "userInterfaceStyle": "automatic",
+    "assetBundlePatterns": [
+      "**/*",
+      "app/assets/fonts/*"
+    ],
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true,
+      "buildNumber": "1.0.38",
+      "bundleIdentifier": "org.name.jog",
+      "backgroundColor": "#ffffff",
+      "config": {
+        "usesNonExemptEncryption": false
+      },
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      },
+      "entitlements": {
+        "aps-environment": "automatic"
+      }
+    },
+    "icon": "./app/assets/images/jog-mascot.png",
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#ffffff"
+      },
+      "versionCode": 7,
+      "package": "org.name.jog",
+      "googleServicesFile": "./google-services.json"
+    },
+    "androidStatusBar": {
+      "backgroundColor": "#ffffff",
+      "barStyle": "light-content",
+      "translucent": true
+    },
+    "androidNavigationBar": {
+      "barStyle": "light-content",
+      "backgroundColor": "#ffffff",
+      "visible": "immersive"
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static"
+    },
+    "plugins": [
+      [
+        "expo-notifications",
+        {
+          "mode": "automatic"
+        }
+      ],
+      [
+        "expo-splash-screen",
+        {
+          "image": "./app/assets/images/jog-mascot.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#ffffff",
+          "enableFullScreenImage_legacy": true,
+          "iconBackgroundColor": "#ffffff",
+          "iconResizeMode": "contain"
+        }
+      ],
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "./app/assets/fonts/Sura-Bold.ttf",
+            "./app/assets/fonts/Sura-Regular.ttf",
+            "./app/assets/fonts/SF-Pro-Display-Bold.otf",
+            "./app/assets/fonts/SF-Pro-Display-BoldItalic.otf",
+            "./app/assets/fonts/SF-Pro-Display-Heavy.otf",
+            "./app/assets/fonts/SF-Pro-Display-Regular.otf",
+            "./app/assets/fonts/SF-Pro-Text-Bold.otf",
+            "./app/assets/fonts/SF-Pro-Text-Regular.otf",
+            "./app/assets/fonts/SF-Pro-Text-Medium.otf",
+            "./app/assets/fonts/SF-Pro-Text-Semibold.otf",
+            "./app/assets/fonts/SF-Pro-Italic.ttf"
+          ]
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "owner": "v1nnyrusso",
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "53bca935-3e3c-4b8e-92fe-bc2ff549c1ae"
+      }
+    },
+    
+    "runtimeVersion": "1.0.4",
+    "updates": {
+      
+      "url": "https://u.expo.dev/53bca935-3e3c-4b8e-92fe-bc2ff549c1ae",
+      "fallbackToCacheTimeout": 0
+      
+      
+    }
+  }
+}

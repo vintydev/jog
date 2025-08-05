@@ -1,0 +1,7 @@
+# Ignore directories
+node_modules/
+lib/
+generated/
+
+# Ignore declaration files
+**/*.d.ts

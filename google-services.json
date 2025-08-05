@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "908874673113",
+    "project_id": "jog-app-c827d",
+    "storage_bucket": "jog-app-c827d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:908874673113:android:d586fd233a36302394c7c8",
+        "android_client_info": {
+          "package_name": "org.name.jog"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "908874673113-u7ema8cnstblbj4aalusvj8mpg5i97bp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD88tJxS2PYdUFjNa4hMY0IJCBQzBJh9ng"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "908874673113-u7ema8cnstblbj4aalusvj8mpg5i97bp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "908874673113-kcain3cla8bkssakijdgv2uf8ts5f4oi.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.name.jog"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
