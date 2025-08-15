@@ -1,4 +1,4 @@
-# jog — An ADHD AI-Assisted Self-Help & Symptom Tracking Application
+# jog — An ADHD AI-Assisted Self-Help & Symptom Tracking Application (Honours Project)
 
 <div align ="center">
  <img src="app/assets/images/jog-mascot.png" alt = "jog Logo" width="200">
