@@ -1,7 +1,7 @@
 # jog — An ADHD AI-Assisted Self-Help & Symptom Tracking Application (Honours Project)
 
 <div align ="center">
- <img src="app/assets/images/jog-mascot.png" alt = "jog Logo" width="200">
+ <img src="app/assets/images/screenshots/homescreen.png" alt = "jog Logo" width="200">
 </div>
 
 
@@ -14,18 +14,32 @@ jog is a simple, stylish and user-friendly focussed mobile AI companion that sup
 - **Personalised Daily Structuring**: AI-generated task recommendations based on user patterns
 - **Smart Reminders**: Intelligent scheduling based on user behaviour and preferences
 
+<div  style="justify-content: center; display: flex; gap: 20px; flex-wrap: wrap; margin-top: 10px; margin-bottom: 10px;">
+<div ><img src="app/assets/images/screenshots/chat.png" alt = "AI Planning Screenshot" width="200"></div>
+<div ><img src="app/assets/images/screenshots/home.png" alt = "Task List Screenshot" width="200"></div>
+</div>
+
 ### Manual Planning & Tracking
 - **Custom Task Management**: Manual "jog" (task) creation and organisation
 - **Flexible Scheduling**: User-controlled task timing and prioritisation
 - **Progress Monitoring**: Real-time task completion tracking
 
+<div style="justify-content: center; display: flex; gap: 20px; flex-wrap: wrap; margin-top: 10px; margin-bottom: 10px;">
+<div ><img src="app/assets/images/screenshots/manual.png" alt = "Add Task Screenshot" width="200"></div>
+<div ><img src="app/assets/images/screenshots/jogs.png" alt = "Task Details Screenshot" width="200"></div>
+</div>
+
 ### Symptom Management
 - **Daily Check-ins**: Reflective symptom assessment sessions
 - **Longitudinal Tracking**: Visual progression charts and analytics
-- **Cognitive Load Monitoring**: Concentration and memory improvement tracking
+- **Cognitive Load Monitoring**: Concentration, memory and mood improvement tracking
 
-### Smart Notifications
-- **Context-Aware Reminders**: Firebase Cloud Functions for intelligent push notifications
+<div style="justify-content: center; display: flex; gap: 20px; flex-wrap: wrap; margin-top: 10px; margin-bottom: 10px;">
+<div ><img src="app/assets/images/screenshots/jog_progress.png" alt = "Check-in Screenshot" width="200"></div>
+<div >
+<img src="app/assets/images/screenshots/symptom_prog.png" alt = "Progress Screenshot" width="200"></div>
+</div>
+
 
 ## Tech Stack
 
@@ -48,7 +62,7 @@ jog is a simple, stylish and user-friendly focussed mobile AI companion that sup
 - `@react-navigation/native` - Cross-platform navigation
 - `firebase` - Backend services integration
 
-## 🏗 Architecture
+##  Architecture
 
 The application follows a **layered architectural design pattern**:
 
@@ -56,6 +70,13 @@ The application follows a **layered architectural design pattern**:
 - **Business Logic Layer**: TypeScript services handling task management and AI integration
 - **Data Layer**: Firebase Firestore for persistent storage
 - **External Services**: OpenAI API for conversational AI functionality
+- 
+### Methodology:
+- **Hybrid Waterfall-Agile approach** with iterative feedback integration
+- **Mixed-methods evaluation** combining interaction metrics and questionnaires
+- **Real-time updates** via Expo's EAS (Expo Application Services)
+
+
 
 ## 📋 Prerequisites
 
@@ -134,18 +155,9 @@ This application was developed as part of academic research into AI-driven digit
 - **User preference** showed frequent use of both AI and manual functions
 - **AI functions alleviated burden** of manual task entry for many users
 
-### Methodology:
-- **Hybrid Waterfall-Agile approach** with iterative feedback integration
-- **Mixed-methods evaluation** combining interaction metrics and questionnaires
-- **Real-time updates** via Expo's EAS (Expo Application Services)
-
-## 📊 Key Metrics & Analytics
-
-The app tracks various engagement and effectiveness metrics:
-- Task completion rates
-- AI vs. manual function usage
-- Symptom improvement trends
-- User interaction patterns
-- Notification response rates
-
+<div align = "center">
+ <img src ="app/assets/images/screenshots/table.png" alt = "Study Results Table" width="600">
+</div>
+<br>
+Thanks for checking out the project, and most importantly, thank you for every user who participated in the study!
 
