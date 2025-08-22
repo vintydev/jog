@@ -14,7 +14,7 @@ jog is a simple, stylish and user-friendly focussed mobile AI companion that sup
 - **Personalised Daily Structuring**: AI-generated task recommendations based on user patterns
 - **Smart Reminders**: Intelligent scheduling based on user behaviour and preferences
 
-<div style="text-align: center; margin: 10px 0;">
+<div align = "center">
     <img src="app/assets/images/screenshots/chat.png" alt="AI Planning Screenshot" width="200" style="margin: 0 10px;">
     <img src="app/assets/images/screenshots/home.png" alt="Task List Screenshot" width="200" style="margin: 0 10px;">
 </div>
@@ -23,8 +23,8 @@ jog is a simple, stylish and user-friendly focussed mobile AI companion that sup
 - **Custom Task Management**: Manual "jog" (task) creation and organisation
 - **Flexible Scheduling**: User-controlled task timing and prioritisation
 - **Progress Monitoring**: Real-time task completion tracking
-- 
-<div style="text-align: center; margin: 10px 0;">
+
+<div align = "center">
     <img src="app/assets/images/screenshots/manual.png" alt = "Add Task Screenshot" width="200">
     <img src="app/assets/images/screenshots/jogs.png" alt = "Task Details Screenshot" width="200">
 </div>
@@ -34,9 +34,9 @@ jog is a simple, stylish and user-friendly focussed mobile AI companion that sup
 - **Longitudinal Tracking**: Visual progression charts and analytics
 - **Cognitive Load Monitoring**: Concentration, memory and mood improvement tracking
 
-<div style="text-align: center; margin: 10px 0;">
-<img src="app/assets/images/screenshots/jog_progress.png" alt = "Check-in Screenshot" width="200">
-<img src="app/assets/images/screenshots/symptom_prog.png" alt = "Progress Screenshot" width="200">
+<div align ="center">
+    <img src="app/assets/images/screenshots/jog_progress.png" alt = "Check-in Screenshot" width="200">
+    <img src="app/assets/images/screenshots/symptom_prog.png" alt = "Progress Screenshot" width="200">
 </div>
 
 
