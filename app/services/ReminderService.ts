@@ -5,7 +5,6 @@ import { Time } from "@expo/html-elements";
 import * as Notifications from "expo-notifications";
 import { useNotification } from "../contexts/NotificationContext";
 import UserStatsService from "./UserStatsService";
-import getToday from "../constants/today";
 
 export default class ReminderService {
 
@@ -98,7 +97,9 @@ export default class ReminderService {
 
                     } as Reminder;
                 });
+                console.log("Observed reminders:", reminders);
                 callback(reminders as Reminder[]);
+                
             });
 
             return unsubscribe;
@@ -116,7 +117,7 @@ export default class ReminderService {
             if (!userId) throw new Error("No user ID provided.");
             if (!reminder) throw new Error("No reminder data provided.");
 
-            console.log("📝 Adding reminder:", reminder);
+            console.log("Adding reminder:", reminder);
 
             const docRef = await addDoc(collection(db, "reminders"), reminder);
             await setDoc(docRef, { reminderId: docRef.id || null }, { merge: true });

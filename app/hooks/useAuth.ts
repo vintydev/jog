@@ -26,8 +26,7 @@ export default function useAuth() {
       const userRef = doc(db, "users", authenticatedUser.uid);
       
       
-      
-
+  
       // Set up real-time listener regardless of token
       unsubscribeUserSnapshot = onSnapshot(userRef, async (docSnapshot) => {
         if (!docSnapshot.exists()) {

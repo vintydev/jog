@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { db } from "@/app/services/FirebaseService";
-import { collection, query, where, onSnapshot, Timestamp} from "firebase/firestore";
+import { collection, query, where, onSnapshot, Timestamp } from "firebase/firestore";
 import useAuth from "@/app/hooks/useAuth";;
 
 // Create a new type for the options
@@ -71,5 +71,5 @@ export default function useReminders(options: UseRemindersOptions = {}) {
     return () => unsubscribe();
   }, [user, today, weekStart]);
 
-  return {reminders, loading};
+  return { reminders, loading };
 }

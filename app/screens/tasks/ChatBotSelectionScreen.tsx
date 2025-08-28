@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { View, Text, TouchableOpacity, ScrollView, SafeAreaView, Animated as Animated2, Alert, ActivityIndicator } from "react-native";
 import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import ConversationService from "@/app/services/ConversationService";
-import { Conversation } from "@/app/types/Conversation";
+import type { Conversation } from "@/app/types/Conversation";
 import useAuth from "@/app/hooks/useAuth";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useConversation } from "@/app/contexts/ConversationContext";
@@ -81,23 +81,6 @@ const ChatBotSelectionScreen: React.FC = () => {
     }, [currentConversation])
   );
 
-  const Conversations: Conversation[] = [
-    {
-      conversationId: "1",
-      userId: "user123",
-      title: "Jogging Plan",
-      messages: [
-        { role: "bot", text: `Hey ${userData?.displayName}! Let's plan your day. What do you need to do today?`, date: new Date(), },
-        { role: "user", text: "I need help planning my jogs.", date: new Date(), },
-      ],
-      createdAt: new Date(),
-      updatedAt: new Date(),
-      conversationType: "Jogging Plan",
-      conversationStatus: "active",
-      isPreviousConversation: false,
-      deleted: false,
-    },
-  ]
 
   // Start a new conversation
   const handleStartNewConversation = async (conversationType: string) => {
@@ -122,6 +105,8 @@ const ChatBotSelectionScreen: React.FC = () => {
       updatedAt: new Date(),
       conversationStatus: "active",
       isPreviousConversation: false,
+      deleted: false,
+      // Add any other required properties from Conversation type here
     };
 
     const createdConversationId = await ConversationService.createConversation(userId || "", newConversation);

@@ -17,7 +17,7 @@ const openAI = axios.create({
         "Content-Type": "application/json",
         Authorization: `Bearer ${OPEN_API_KEY}`,
     },
-    timeout: 60000,
+    timeout: 30000,
 });
 
 const OpenAIService = {
@@ -379,7 +379,8 @@ const OpenAIService = {
         try {
             if (!user?.uid) throw new Error("User ID is missing.");
 
-            for (const jogData of jogs) {
+            // Create all reminders in parallel using batch writes
+            const reminderPromises = jogs.map(async (jogData) => {
                 const [hours, minutes] = jogData.startTime.split(":").map((time: string) => parseInt(time));
 
                 const jogEntry: Reminder = {
@@ -399,12 +400,12 @@ const OpenAIService = {
                     updatedAt: Timestamp.now(),
                     reminderIntervals: [{
                         currentInterval: 0,
-                        countOfIntervals: (jogData.reminderTimes.length * jogData.reminderTimes.length),
-                        intervals: jogData.reminderTimes,
+                        countOfIntervals: (jogData.reminderTimes?.length || 0) * (jogData.reminderTimes?.length || 0),
+                        intervals: jogData.reminderTimes || [],
                         hasTriggered: false,
                     }],
                     updateCount: 0,
-                    steps: jogData.isStepBased ? jogData.steps.map((step: any, index: number) => ({
+                    steps: jogData.isStepBased ? (jogData.steps || []).map((step: any, index: number) => ({
                         id: index + 1,
                         title: step.title,
                         completed: false,
@@ -416,20 +417,23 @@ const OpenAIService = {
                         ))),
                     })) : [],
                     isAI: true,
-
                 };
 
-                await ReminderService.createReminder(jogEntry);
+                return ReminderService.createReminder(jogEntry);
+            });
 
+            // Wait for all reminders to be created in parallel
+            await Promise.all(reminderPromises);
+            console.log(`Successfully created ${jogs.length} jogs`);
 
-            }
+            // Generate response after all jogs are created
+            const jogCreationResponse = await OpenAIService.generateFinalResponse(jogs, user);
 
-            const jogCreationResponse: string = await OpenAIService.generateFinalResponse(jogs, user);
-
-            // Update conversation history with confirmation message
+            // Fetch conversation only once and update
+            const currentConversation = await ConversationService.getConversationById(conversationId);
             await ConversationService.updateConversationById(conversationId, {
                 messages: [
-                    ...(await ConversationService.getConversationById(conversationId))?.messages || [],
+                    ...(currentConversation?.messages || []),
                     {
                         date: Timestamp.now(),
                         role: "bot",
@@ -441,8 +445,8 @@ const OpenAIService = {
             return jogCreationResponse;
 
         } catch (error) {
-            console.error("Error creating jogs:", error);
-            return "Failed to create jogs: " + ((error as Error).message || "unknown error.");
+            console.error("Error creating multiple jogs:", error);
+            return `Failed to create jogs: ${(error as Error).message || "unknown error"}`;
         }
     },
 };

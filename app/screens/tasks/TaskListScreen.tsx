@@ -33,8 +33,6 @@ const TaskListLayout: React.FC<TaskListLayoutProps> = ({ navigation }) => {
     const [visible, setVisible] = useState(false);
 
 
-
-
     // Toggle section visibility
     const toggleSection = (status: string) => {
         setExpandedSections((prev) => ({ ...prev, [status]: !prev[status] }));
@@ -76,27 +74,14 @@ const TaskListLayout: React.FC<TaskListLayoutProps> = ({ navigation }) => {
             );
         };
 
-        // Helper function to update overdue statuses
-        const updateOverdueReminders = (reminders: Reminder[]) => {
-            return reminders.map((reminder) => {
-                if (reminder.completeStatus === "upcoming" && (reminder.dueDate instanceof Date ? reminder.dueDate.getTime() : reminder.dueDate.toDate().getTime()) < now.getTime()) {
-                    if (reminder.reminderId) {
-                        ReminderService.updateReminderStatus(reminder.reminderId, "overdue");
-                    }
-                    return { ...reminder, completeStatus: "overdue" };
-                }
-                return reminder;
-            });
-        };
-
         // Subscribe to Firestore updates
         const unsubscribe = ReminderService.observeReminders(user.uid, (reminders) => {
             let processedReminders = processReminders(reminders);
             let tasksToday = filterTodaysReminders(processedReminders);
-            let updatedReminders = updateOverdueReminders(tasksToday);
+         
 
             // Sort reminders by due date
-            const sortedReminders = updatedReminders.sort((a, b) => {
+            const sortedReminders = tasksToday.sort((a, b) => {
                 const dateA = a.dueDate instanceof Date ? a.dueDate : a.dueDate.toDate();
                 const dateB = b.dueDate instanceof Date ? b.dueDate : b.dueDate.toDate();
                 return dateA.getTime() - dateB.getTime();
@@ -113,7 +98,7 @@ const TaskListLayout: React.FC<TaskListLayoutProps> = ({ navigation }) => {
             unsubscribe.then((unsub) => unsub && unsub());
         };
 
-    }, [user?.uid, selectedDate, reminders]);
+    }, [user?.uid, selectedDate, reminderLoading]);
 
     const markTaskAsComplete = async (taskId: string) => {
 
@@ -164,53 +149,7 @@ const TaskListLayout: React.FC<TaskListLayoutProps> = ({ navigation }) => {
         }
     };
 
-    const handleFireTouch = () => {
-        Alert.alert("Mark All Jogs as Complete", "Are you sure you want to mark all jogs as complete?", [
-            {
-                text: "Cancel",
-                style: "cancel",
-            },
-            {
-                text: "Yes",
-                onPress: async () => {
-                    await handleMarkAllAsComplete();
-                },
-            },
-        ]);
-    };
-
-    const handleMarkAllAsComplete = async () => {
-        setLoading(true);
-
-        const incompleteTasks = tasks.filter(
-            (task) => task.completeStatus === "upcoming" || task.completeStatus === "overdue"
-        );
-
-        if (incompleteTasks.length === 0) return;
-
-
-
-        try {
-            for (const task of incompleteTasks) {
-                try {
-                    setTaskBeingUpdated(task.reminderId);
-                    await markTaskAsComplete(task.reminderId);
-                } catch (err) {
-                    console.warn(`Failed to complete task ${task.reminderId}:`, err);
-                }
-            }
-        } catch (e) {
-            console.error("Unexpected error in markAll:", e);
-        } finally {
-            setTaskBeingUpdated(null);
-            setLoading(false);
-        }
-    };
-
-
-
-
-
+    
     return (
         <Animated.View
             entering={FadeInUp.delay(50).duration(350)}
@@ -381,8 +320,6 @@ const TaskListLayout: React.FC<TaskListLayoutProps> = ({ navigation }) => {
                                 );
                             })
                         )}
-
-
 
                     </ScrollView>
 

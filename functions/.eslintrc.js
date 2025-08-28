@@ -18,10 +18,10 @@ module.exports = {
     sourceType: "module",
   },
   ignorePatterns: [
-    "**/node_modules/**", 
-    "lib/**", 
+    "**/node_modules/**",
+    "lib/**",
     "generated/**", // Ignore generated files
-    "**/*.d.ts", 
+    "**/*.d.ts",
   ],
   plugins: [
     "@typescript-eslint",

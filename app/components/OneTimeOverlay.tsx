@@ -17,6 +17,7 @@ const OneTimeOverlay: React.FC<OneTimeOverlayProps> = ({ storageKey, title, mess
     const [visible, setVisible] = useState(false);
     const screenWidth = Dimensions.get("window").width;
 
+    // useeffect for 
     useEffect(() => {
 
         const devReset = () => {

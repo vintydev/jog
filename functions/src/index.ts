@@ -1144,9 +1144,9 @@ export const verifyTestUserEmail = functions.https.onCall(async (data) => {
     });
 
     return {success: true, message: `User ${userRecord.uid} email marked as verified.`};
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Failed to verify user email:", error);
-    return {success: false, message: error.message};
+    return {success: false, message: error instanceof Error ? error.message : String(error)};
   }
 });
 

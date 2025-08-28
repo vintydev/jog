@@ -1,6 +1,6 @@
 import { initializeApp, FirebaseApp } from "firebase/app";
 import { Auth, initializeAuth, inMemoryPersistence, getReactNativePersistence, } from "firebase/auth";
-import { Firestore, initializeFirestore, persistentLocalCache } from "firebase/firestore";
+import { Firestore, initializeFirestore, persistentLocalCache, persistentMultipleTabManager } from "firebase/firestore";
 import { FIREBASE_API_KEY, FIREBASE_AUTH_DOMAIN, FIREBASE_PROJECT_ID, FIREBASE_STORAGE_BUCKET, FIREBASE_MESSAGING_SENDER_ID, FIREBASE_APP_ID, FIREBASE_MEASUREMENT_ID } from "@env";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
@@ -26,7 +26,9 @@ const auth: Auth = initializeAuth(app, {
 
 // Initialise Firestore
 const db: Firestore = initializeFirestore(app, {
-  localCache: persistentLocalCache(),
+  localCache: persistentLocalCache({
+    tabManager: persistentMultipleTabManager()
+  }),
 
 });
 

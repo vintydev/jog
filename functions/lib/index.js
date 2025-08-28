@@ -950,7 +950,7 @@ exports.verifyTestUserEmail = functions.https.onCall(async (data) => {
     }
     catch (error) {
         console.error("Failed to verify user email:", error);
-        return { success: false, message: error.message };
+        return { success: false, message: error instanceof Error ? error.message : String(error) };
     }
 });
 //# sourceMappingURL=index.js.map
